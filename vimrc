@@ -83,47 +83,58 @@ set number								" Show line numbering
 set numberwidth=1						" Use 1 col + 1 space for numbers
 set ttyfast
 
-if has("gui_running")
-	syntax enable
-	set t_Co=256
-	set hlsearch
-	set clipboard=autoselect
+" Terminals are better now
+syntax enable
+"set t_Co=256
+set t_Co=16
+set background=dark
+let g:solarized_termtrans=1
+colorscheme solarized
+set number
+highlight ColorColumn ctermbg=darkgray
+call togglebg#map("<F5>")
 
-	set nu
-	set guioptions-=T
-	" Solarized options
-	" let g:solarized_bold=0
-	" let g:solarized_italic=0
-	let g:solarized_contrast="high"
-	" let g:solarized_visibility="high"
-	set nu
-	set guioptions-=T
-	if has('mac')
-		set guifont=Monaco:h9
-		set columns=999
-		set background=light
-		colorscheme solarized
-	elseif has('unix')
-		set guifont=Monaco\ 9
-		set guioptions-=m
-		set background=light
-		colorscheme solarized
-	else
-		colorscheme solarized
-		set guifont=Consolas\ for\ Powerline\ FixedD:h10
-	endif
-	" toggle light/dark background with a F5 key
-	call togglebg#map("<F5>")
-
-else
-	set t_Co=16
-	"let g:solarized_termcolors=256
-	let g:solarized_termtrans=1
-	syntax enable
-	set background=dark
-	colorscheme solarized
-	call togglebg#map("<F5>")
-endif
+"if has("gui_running")
+"	syntax enable
+"	set t_Co=256
+"	set hlsearch
+"	set clipboard=autoselect
+"
+"	set nu
+"	set guioptions-=T
+"	" Solarized options
+"	" let g:solarized_bold=0
+"	" let g:solarized_italic=0
+"	let g:solarized_contrast="high"
+"	" let g:solarized_visibility="high"
+"	set nu
+"	set guioptions-=T
+"	if has('mac')
+"		set guifont=Monaco:h9
+"		set columns=999
+"		set background=light
+"		colorscheme solarized
+"	elseif has('unix')
+"		set guifont=Monaco\ 9
+"		set guioptions-=m
+"		set background=light
+"		colorscheme solarized
+"	else
+"		colorscheme solarized
+"		set guifont=Consolas\ for\ Powerline\ FixedD:h10
+"	endif
+"	" toggle light/dark background with a F5 key
+"	call togglebg#map("<F5>")
+"
+"else
+"	set t_Co=16
+"	"let g:solarized_termcolors=256
+"	let g:solarized_termtrans=1
+"	syntax enable
+"	set background=dark
+"	colorscheme solarized
+"	call togglebg#map("<F5>")
+"endif
 
 
 " tab labels show the filename without path(tail)
@@ -465,7 +476,7 @@ let g:tmuxline_preset = {
 	\'options': {
 		\'status-justify': 'left'},
 	\'win_options': {
-		\'window-status-format': '#{?window_bell_flag,#[fg=#ffffff#,bg=#d33682],#[fg=colour240#,bg=colour0]} #I | #W '}
+		\'window-status-bell-style': 'fg=#ffffff,bg=#d33682'}
 	\}
 
 """ NerdTree toggle
