@@ -10,6 +10,7 @@ editor = "vim"
 # what do I do to replicate this behavior? I don't want to auto track
 # other people's bookmarks. Feels like a step backwards...
 # push-new-bookmarks = true
+remotes.origin.auto-track-created-bookmarks = "*"
 
 [revset-aliases]
 'unreleased' = 'heads(::@ & tags())::@'
