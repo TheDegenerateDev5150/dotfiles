@@ -25,6 +25,7 @@ remaster = ["rebase", "--onto", "trunk()", "-r"]
 
 unreleased = ["log", "-r", "unreleased"]
 ll = ["log", "-r", "ancestors(@, 10)"]
+lll = ["log", "-r", "ancestors(@, 20)"]
 
 init = ["git", "init", "--colocate"]
 
